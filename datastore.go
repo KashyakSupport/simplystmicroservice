@@ -1,6 +1,7 @@
 package simplystmicroservice
 
 import (
+	"errors"
 	"net/http"
 
 	"google.golang.org/appengine"
@@ -46,6 +47,14 @@ func (ud *UserDatastore) build(firstname string, lastname string, username strin
 	//var err error
 	//ud.Keys,
 	return nil
+}
+
+//Get vlrkvj
+func (ud *UserDatastore) Get() error {
+	if len(ud.Keys) == 0 {
+		return errors.New("Hi eeror from get")
+	}
+	return datastore.Get(ud.Ctx, ud.Keys[0], ud.User)
 }
 
 //Put is method to insert values

@@ -28,6 +28,9 @@ func restHandler(w http.ResponseWriter, r *http.Request) {
 	ud := NewUserDatastore(r)
 
 	switch r.Method {
+	case "GET":
+		handleGet(ud, w, r)
+		return
 	case "PUT":
 		handlePut(ud, w, r)
 		return
@@ -42,6 +45,13 @@ func restHandler(w http.ResponseWriter, r *http.Request) {
 type SuccessResponse struct {
 	User    UserEntiry `json:"entity"`
 	Message string     `json:"message"`
+}
+
+func handleGet(ud *UserDatastore, w http.ResponseWriter, r *http.Request) {
+	if err := ud.Get(); err != nil {
+		respondErr(w, r, http.StatusBadRequest, err.Error())
+		return
+	}
 }
 
 func handlePut(ud *UserDatastore, w http.ResponseWriter, r *http.Request) {
