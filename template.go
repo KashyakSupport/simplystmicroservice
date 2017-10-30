@@ -1,4 +1,4 @@
-package simplystmicroservice
+package hellodatastore
 
 import (
 	"html/template"
