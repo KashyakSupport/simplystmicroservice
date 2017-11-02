@@ -1,12 +1,5 @@
 package hellodatastore
 
-import (
-	"fmt"
-	"log"
-	"net/url"
-	"strings"
-)
-
 // p := NewParam(r.URL)
 type Param struct {
 	Kind  string
@@ -18,12 +11,13 @@ type Param struct {
 	Email string
 }
 
+/*
 func NewParam(url *url.URL) *Param {
 	path := strings.Trim(url.Path, "/")
-	log.Printf("%#v", url.Path)
-	log.Printf("%#v", path)
+	//log.Printf("%#v", url.Path)
+	//log.Printf("%#v", path)
 	s := strings.Split(path, "/")
-	log.Printf("%#v", s)
+	//log.Printf("%#v", s)
 	param := new(Param)
 	log.Printf("%#v", param)
 	if len(s) >= 2 {
@@ -39,6 +33,7 @@ func NewParam(url *url.URL) *Param {
 	/*if len(s) >= 4 {
 		param.Value = s[3]
 	}*/
+/*
 	if len(s) >= 4 {
 		param.LName = s[3]
 	}

@@ -1,24 +1,29 @@
 package hellodatastore
 
 import (
+	"encoding/json"
 	"log"
 	"net/http"
 )
 
 func init() {
-	http.Handle("/", &templateHandler{filename: "index.html"})
+	//http.Handle("/", &templateHandler{filename: "index.html"})
+	http.Handle("/", http.FileServer(http.Dir("./Simplyst/dist")))
 	http.HandleFunc("/api/", restHandler)
 }
 
 func restHandler(w http.ResponseWriter, r *http.Request) {
 
-	p := NewParam(r.URL)
+	//p := NewParam(r.URL)
+	var p Param
+	_ = json.NewDecoder(r.Body).Decode(&p)
+	json.NewEncoder(w).Encode(p)
 	log.Printf("%#v", r.URL)
 	log.Printf("%#v", p)
-	if p.Kind != "expense" {
+	/*if p.Kind != "expense" {
 		log.Printf("%#v", p.Kind)
 		respondErr(w, r, http.StatusBadRequest, "does not correspond to the type of non-Expense")
-	}
+	}*/
 
 	/*if r.Method != "PUT" && !p.HasValue() {
 		p.Value = "0"
@@ -40,7 +45,7 @@ func restHandler(w http.ResponseWriter, r *http.Request) {
 	/*	case "GET":
 		handleGet(ed, w, r)
 		return*/
-	case "PUT":
+	case "POST":
 		handlePut(ed, w, r)
 		return
 	/*case "DELETE":
