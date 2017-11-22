@@ -28,32 +28,40 @@ jQuery(function($) {
 });
 </script>
 </head>
-<body>
-<!--<section>
-<h2>GET</h2>
-<form action="/api/expense" method="get">
-<label>item name: <input type="text" value="" name="key"></label>
-<input type="submit" value="Acquire the amount">
-</form>
-</section>-->
-<section>
-<h2>Please Signup Here</h2>
-<form id="put-expense" action="/api/user" method="put">
-<label>First Name:<input type="text" value="" name="key"></label><br/> <br/>
-<!--<label>Amount of money : <input type="text" value="" name="value"></label><br/> <br/>-->
-<label>Last Name:<input type="text" value="" name="lname"></label><br/> <br/>
-<label>User Name:<input type="text" value="" name="uname"></label><br/> <br/>
-<label>PassWord:<input type="text" value="" name="pass"></label><br/> <br/>
-<label>Email: <input type="text" value="" name="email"></label><br/> <br/>
-<input type="submit" value="Signup">
-</form>
-</section>
-<!--<section>
-<h2>DELETE</h2>
-<form action="/api/expense" method="delete">
-<label>item name : <input type="text" value="" name="key"></label>
-<input type="submit" value="Delete item">
-</form>
-</section>-->
+<body><!--
+    <section>
+        <h2>GET</h2>
+            <form action="/api/user" method="get">
+            <label>item name: <input type="text" value="" name="fname"></label>
+            <input type="submit" value="Acquire the amount">
+        </form>
+    </section>-->
+    <section>
+        <h2>Please Signup Here</h2>
+        <form id="put-user" action="/api/user" method="put">
+            <label>User Name:<input type="text" value="" name="uname"></label><br/> <br/>
+            <label>First Name:<input type="text" value="" name="fname"></label><br/> <br/>
+            <label>Last Name:<input type="text" value="" name="lname"></label><br/> <br/>
+            <label>Email: <input type="text" value="" name="email"></label><br/> <br/>
+            <label>PassWord:<input type="text" value="" name="pass"></label><br/> <br/>
+        <input type="submit" value="Signup">
+    </form>
+    </section>
+    <!--<section>
+        <h2>DELETE</h2>
+        <form action="/api/user" method="delete">
+            <label>item name : <input type="text" value="" name="key"></label>
+            <input type="submit" value="Delete item">
+        </form>
+    </section>-->
+
+    <section>
+        <h2>Please Login Here</h2>
+        <form id="put-expense" action="/api/user" method="POST">
+            <label>User Name:<input type="text" value="" name="uname"></label><br/> <br/>
+            <label>PassWord:<input type="text" value="" name="pass"></label><br/> <br/>
+            <input type="submit" value="Login">
+        </form>
+    </section>
 </body>
 </html>

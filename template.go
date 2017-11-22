@@ -18,5 +18,6 @@ func (t *templateHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	t.once.Do(func() {
 		t.tpl = template.Must(template.ParseFiles(filepath.Join("templates", t.filename)))
 	})
+
 	t.tpl.Execute(w, nil)
 }
