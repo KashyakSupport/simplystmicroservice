@@ -61,13 +61,6 @@ func restHandler(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
-func respond(w http.ResponseWriter, r *http.Request, status int, data interface{}) {
-	w.WriteHeader(status)
-	if data != nil {
-		json.NewEncoder(w).Encode(data)
-	}
-}
-
 func getallvisitshandler(w http.ResponseWriter, r *http.Request) {
 	ctx := appengine.NewContext(r)
 	ctx, err := appengine.Namespace(ctx, NAMESPACENAME)
