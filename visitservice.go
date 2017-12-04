@@ -31,8 +31,6 @@ type VisitEntiry struct {
 	NurseNote     string `json:"nursenote,omitempty"`
 }
 
-//var visit *VisitEntiry
-
 //SuccessResponse store response
 type SuccessResponse struct {
 	//	visit   VisitEntiry `json:"entity"`
