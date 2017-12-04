@@ -13,7 +13,7 @@ import (
 )
 
 //KINDNAME is the table name to store the values
-const KINDNAME = "Vist"
+const KINDNAME = "Visit"
 
 //NAMESPACENAME is the Namespace
 const NAMESPACENAME = "-kashyak-"
